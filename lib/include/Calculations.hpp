@@ -30,9 +30,14 @@ std::tuple<std::string, double> determine_best_threshold_numeric(const Data &dat
 std::tuple<std::string, double> determine_best_threshold_cat(const Data &data, int col);
 
 
-const ClassCounter classCounts(const Data &data);
-const ClassCounter featureCounts(const Data& data, int col);
+//const ClassCounter classCounts(const Data &data, int col);
+//const ClassCounter featureCounts(const Data& data, int col);
 
+struct ClassCounts {
+    ClassCounter ctr;
+    ClassCounter ctr_of_feature;
+    ClassCounter ctr_of_feature_decision;
+};
 } // namespace Calculations
 
 #endif //DECISIONTREE_CALCULATIONS_HPP
