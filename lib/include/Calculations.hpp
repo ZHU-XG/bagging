@@ -26,10 +26,12 @@ const double gini(const ClassCounter& counts, double N);
 
 std::tuple<const double, const Question> find_best_split(const Data &rows, const MetaData &meta);
 
-std::tuple<std::string, double> determine_best_threshold_numeric(const Data &data, int col);
+std::tuple<std::string, double> determine_best_threshold_numeric(Data &data, int col);
 
-std::tuple<std::string, double> determine_best_threshold_cat(const Data &data, int col);
+std::tuple<std::string, double> determine_best_threshold_cat(Data &data, int col);
 
+bool compare_rows(const VecS& v1, const VecS& v2, int col);
+void sort_col(Data& data, int col);
 
 //const ClassCounter classCounts(const Data &data, int col);
 //const ClassCounter featureCounts(const Data& data, int col);

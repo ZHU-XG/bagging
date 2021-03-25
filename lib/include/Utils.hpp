@@ -20,7 +20,7 @@
 
 // You can change these data type aliases
 using VecS = std::vector<std::string>;
-using Data = std::vector<std::vector<std::string>>;  // count matrix
+using Data = std::vector<std::vector<std::string>>;  
 struct MetaData {
   VecS labels;
   // Here you can store additional meta data
