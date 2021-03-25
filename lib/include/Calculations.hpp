@@ -16,6 +16,7 @@
 #include "Utils.hpp"
 
 using ClassCounter = std::unordered_map<std::string, int>;
+using FeatureDecisionCounter = std::unordered_map<std::string, ClassCounter>;
 
 namespace Calculations {
 
@@ -35,8 +36,7 @@ std::tuple<std::string, double> determine_best_threshold_cat(const Data &data, i
 
 struct ClassCounts {
     ClassCounter ctr;
-    ClassCounter ctr_of_feature;
-    ClassCounter ctr_of_feature_decision;
+    FeatureDecisionCounter ctr_of_feature_decision;
 };
 } // namespace Calculations
 

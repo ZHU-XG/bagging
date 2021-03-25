@@ -50,7 +50,7 @@ const double Calculations::gini(const ClassCounter& counts, double N) {
   // Gini(S) = 1 - sum(pi^2)
   double impurity = 1.0;
   for (ClassCounter::const_iterator cit = counts.begin(); cit != counts.end(); cit++) {
-      impurity -= (cit->second) * (cit->second);
+      impurity -= (cit->second / N) * (cit->second / N);
   }
   return impurity;
 }
@@ -63,40 +63,52 @@ tuple<std::string, double> Calculations::determine_best_threshold_numeric(const 
   return forward_as_tuple(best_thresh, best_loss);
 }
 
+/*
+    find the best split value for a categorical feature
+*/
 tuple<std::string, double> Calculations::determine_best_threshold_cat(const Data& data, int col) {
   double best_loss = std::numeric_limits<float>::infinity();
+  double current_loss = 0.0;
   std::string best_thresh;
   double data_size = data.size();
-  //double row_size = data.at(0).size();
-  ClassCounts class_counts;
-  class_counts = classCounts(data, col);
+  ClassCounts class_counts = classCounts(data, col);
   ClassCounter results = class_counts.ctr;  // 最后decision的统计
-  ClassCounter ctr = class_counts.ctr_of_feature;  // 一个feature里的可能取值的统计
-  ClassCounter results_of_feature = class_counts.ctr_of_feature_decision;  // 一个feature里的decision的统计
+  ClassCounter s1;
+  ClassCounter s2; // residual values
+  FeatureDecisionCounter results_of_feature = class_counts.ctr_of_feature_decision;  // 一个feature里的decision的统计
   double gini_s = gini(results, data_size);  // gini of results
+  double gini_s1;
+  double gini_s2;
   double gain_gini;
+  double num_decisions_per_value = 0.0;
   
-  for (ClassCounter::iterator it = ctr.begin(); it != ctr.end(); it++) {  // 迭代feature里所有可能的取值
-      ClassCounter ctr_without_it = ctr;
-      ctr_without_it.erase(it->first); // 分成s1 | s2 ，S2是排除了S1的所有可能取值
-      gain_gini = gini_s - (it->second / data_size) * gini(results_of_feature, it->second) - ((data_size - it->second) / data_size) * gini(ctr_without_it, data_size - it->second);
-
+  for (FeatureDecisionCounter::iterator fit = results_of_feature.begin(); fit != results_of_feature.end(); fit++) {  // 迭代feature里所有可能的value
+      s1 = fit->second; // 每个value对应的decisions 
+      s2 = results;
+      for (ClassCounter::iterator cit = s1.begin(); cit != s1.end(); cit++) {  // 遍历每个value对应的decisions
+          num_decisions_per_value += double(cit->second);  // 将decision数加起来
+          s2.at(cit->first) -= cit->second;
+      }
+      gini_s1 = gini(s1, num_decisions_per_value);
+      gini_s2 = gini(s2, data_size - num_decisions_per_value);
+      current_loss = (num_decisions_per_value / data_size) * gini_s1 + ((data_size - num_decisions_per_value) / data_size) * gini_s2;
+      num_decisions_per_value = 0.0;
+      if (current_loss < best_loss) {
+          best_loss = current_loss;
+          best_thresh = fit->first;
+          if (best_loss == 0.0) {
+              break;
+          }
+      }
   }
-  
-
-  //TODO: find the best split value for a categorical feature
-  // 输入一个categorical feature，有很多取值，遍历每个取值，并与剩下的取值分成两份，然后计算出best_thresh即IG最大的值。
-  // classcounts 后返回class数（即取值）和相应的个数
-  // 遍历每个取值，将取值排除后计算gini，然后再计算整体的IG，并存储到一个vector里
+  gain_gini = gini_s - best_loss;
   return forward_as_tuple(best_thresh, best_loss);
 }
 
 Calculations::ClassCounts classCounts(const Data& data, int col) {  // 输入data
     Calculations::ClassCounts cc;
     ClassCounter counter;
-    ClassCounter counter_of_feature;
-    ClassCounter counter_of_feature_decision;
-    std::unordered_map<std::string, ClassCounter> cfd;
+    FeatureDecisionCounter counter_of_feature_decision;
     for (const auto& rows : data) {  // 遍历每一行
         const string decision = *std::rbegin(rows); // 每一行的最后一个为decision
         const string feature = rows.at(col); // 每行第col个为feature
@@ -106,20 +118,69 @@ Calculations::ClassCounts classCounts(const Data& data, int col) {  // 输入dat
         else {
             counter[decision] += 1;
         }
-        if (counter_of_feature.find(feature) != std::end(counter_of_feature)) { // 已有的
-            counter_of_feature.at(feature)++;
-            counter_of_feature_decision.at(feature+decision)++;  
+        if (counter_of_feature_decision.find(feature) != std::end(counter_of_feature_decision)) { // 存储了某个col对应的取值对应的decision，计算gini时只考虑一个取值
+            counter_of_feature_decision.at(feature).at(decision)++;
         }
         else {
-            counter_of_feature[feature] += 1;  // 新建的
-            counter_of_feature_decision[feature+decision] += 1;
+            counter_of_feature_decision[feature][decision] += 1;
         }
     }
     cc.ctr = counter;
-    cc.ctr_of_feature = counter_of_feature;
     cc.ctr_of_feature_decision = counter_of_feature_decision;
     return cc;
 }
+
+
+
+//tuple<std::string, double> Calculations::determine_best_threshold_cat(const Data& data, int col) {
+//    double best_loss = std::numeric_limits<float>::infinity();
+//    std::string best_thresh;
+//    double data_size = data.size();
+//    //double row_size = data.at(0).size();
+//    ClassCounts class_counts;
+//    class_counts = classCounts(data, col);
+//    ClassCounter results = class_counts.ctr;  // 最后decision的统计
+//    ClassCounter ctr = class_counts.ctr_of_feature;  // 一个feature里的可能取值的统计
+//    ClassCounter results_of_feature = class_counts.ctr_of_feature_decision;  // 一个feature里的decision的统计
+//    double gini_s = gini(results, data_size);  // gini of results
+//    double gain_gini;
+//
+//    for (ClassCounter::iterator it = ctr.begin(); it != ctr.end(); it++) {  // 迭代feature里所有可能的取值
+//        ClassCounter ctr_without_it = ctr;
+//        ctr_without_it.erase(it->first); // 分成s1 | s2 ，S2是排除了S1的所有可能取值
+//        gain_gini = gini_s - (it->second / data_size) * gini(results_of_feature, it->second) - ((data_size - it->second) / data_size) * gini(ctr_without_it, data_size - it->second);
+//
+//    }
+
+//Calculations::ClassCounts classCounts(const Data& data, int col) {  // 输入data
+//    Calculations::ClassCounts cc;
+//    ClassCounter counter;
+//    ClassCounter counter_of_feature;
+//    ClassCounter counter_of_feature_decision;
+//    std::unordered_map<std::string, ClassCounter> cfd;
+//    for (const auto& rows : data) {  // 遍历每一行
+//        const string decision = *std::rbegin(rows); // 每一行的最后一个为decision
+//        const string feature = rows.at(col); // 每行第col个为feature
+//        if (counter.find(decision) != std::end(counter)) {
+//            counter.at(decision)++;
+//        }
+//        else {
+//            counter[decision] += 1;
+//        }
+//        if (counter_of_feature.find(feature) != std::end(counter_of_feature)) { // 已有的
+//            counter_of_feature.at(feature)++;
+//            counter_of_feature_decision.at(feature+decision)++;  
+//        }
+//        else {
+//            counter_of_feature[feature] += 1;  // 新建的
+//            counter_of_feature_decision[feature+decision] += 1;
+//        }
+//    }
+//    cc.ctr = counter;
+//    cc.ctr_of_feature = counter_of_feature;
+//    cc.ctr_of_feature_decision = counter_of_feature_decision;
+//    return cc;
+//}
 
 //const ClassCounter Calculations::featureCounts(const Data& data, int col) {  // 输入data
 //    ClassCounter counter;
