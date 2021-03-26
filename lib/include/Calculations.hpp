@@ -24,7 +24,7 @@ std::tuple<const Data, const Data> partition(const Data &data, const Question &q
 
 const double gini(const ClassCounter& counts, double N);
 
-std::tuple<const double, const Question> find_best_split(const Data &rows, const MetaData &meta);
+std::tuple<const double, const Question> find_best_split(Data &rows, const MetaData &meta);
 
 std::tuple<std::string, double> determine_best_threshold_numeric(Data &data, int col);
 

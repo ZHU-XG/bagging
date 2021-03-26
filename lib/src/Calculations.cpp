@@ -32,16 +32,38 @@ tuple<const Data, const Data> Calculations::partition(const Data& data, const Qu
   return forward_as_tuple(true_rows, false_rows); 
 }
 
-tuple<const double, const Question> Calculations::find_best_split(const Data& rows, const MetaData& meta) {
+tuple<const double, const Question> Calculations::find_best_split(Data& rows, const MetaData& meta) {
     double best_gain = 0.0;  // keep track of the best information gain
     auto best_question = Question();  //keep track of the feature / value that produced it
     int num_cols = meta.labels.size();
+    /*tuple<string, double> best_threshold;*/
+    string best_threshold;
     // TODO: find the best split among all features and feature values
     for (int col = 0; col < num_cols - 1; col++) {
+        if (std::get<0>(best_threshold).empty()) {
+            if (best_question.isNumeric()) {
+                
 
+                best_threshold = determine_best_threshold_numeric(rows, col);
+            }
+            else {
+                best_threshold = determine_best_threshold_cat(rows, col);
+            }
+        }
+        else {
+            if (best_question.isNumeric()) {
+                std::get<1>(best_threshold) < std::get<1>(determine_best_threshold_numeric(rows, col));
+                best_threshold = determine_best_threshold_numeric(rows, col);
+            }
+            else {
+                std::get<1>(best_threshold) < std::get<1>(determine_best_threshold_cat(rows, col));
+                best_threshold = determine_best_threshold_numeric(rows, col);
+            }
+        }    
     }
-
-
+    
+    best_gain = std::get<1>(best_threshold);
+    best_question.column_ = 
 
 
     return forward_as_tuple(best_gain, best_question);
@@ -103,7 +125,7 @@ tuple<std::string, double> Calculations::determine_best_threshold_numeric(Data& 
     find the best split value for a categorical feature
 */
 tuple<std::string, double> Calculations::determine_best_threshold_cat(Data& data, int col) {
-    sort_col(data, col);
+    //sort_col(data, col);
     double best_loss = std::numeric_limits<float>::infinity();
     double current_loss = 0.0;
     std::string best_thresh;
