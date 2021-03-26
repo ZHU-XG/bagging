@@ -33,8 +33,8 @@ std::tuple<std::string, double> determine_best_threshold_cat(Data &data, int col
 bool compare_rows(const VecS& v1, const VecS& v2, int col);
 void sort_col(Data& data, int col);
 
-//const ClassCounter classCounts(const Data &data, int col);
-//const ClassCounter featureCounts(const Data& data, int col);
+
+bool isNum(string str);
 
 struct ClassCounts {
     ClassCounter ctr;

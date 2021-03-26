@@ -10,6 +10,7 @@
 #include "Calculations.hpp"
 #include "Utils.hpp"
 #include "functional"
+#include "sstream"
 
 using std::tuple;
 using std::pair;
@@ -36,36 +37,35 @@ tuple<const double, const Question> Calculations::find_best_split(Data& rows, co
     double best_gain = 0.0;  // keep track of the best information gain
     auto best_question = Question();  //keep track of the feature / value that produced it
     int num_cols = meta.labels.size();
-    /*tuple<string, double> best_threshold;*/
-    string best_threshold;
+    string temp_value;
+    string best_value;
+    double temp_ig;
+    int best_feature;
     // TODO: find the best split among all features and feature values
     for (int col = 0; col < num_cols - 1; col++) {
-        if (std::get<0>(best_threshold).empty()) {
-            if (best_question.isNumeric()) {
-                
-
-                best_threshold = determine_best_threshold_numeric(rows, col);
-            }
-            else {
-                best_threshold = determine_best_threshold_cat(rows, col);
-            }
+        if (isNum(rows.at(0).at(col))) {
+            temp_value = std::get<0>(determine_best_threshold_numeric(rows, col));
+            temp_ig = std::get<1>(determine_best_threshold_numeric(rows, col));
         }
         else {
-            if (best_question.isNumeric()) {
-                std::get<1>(best_threshold) < std::get<1>(determine_best_threshold_numeric(rows, col));
-                best_threshold = determine_best_threshold_numeric(rows, col);
+            temp_value = std::get<0>(determine_best_threshold_cat(rows, col));
+            temp_ig = std::get<1>(determine_best_threshold_cat(rows, col));
+        }
+        if (col == 0) {
+            best_gain = temp_ig;
+            best_feature = col;
+            best_value = temp_value;
+        }
+        else {
+            if (temp_ig > best_gain) {
+                best_gain = temp_ig;
+                best_feature = col;
+                best_value = temp_value;
             }
-            else {
-                std::get<1>(best_threshold) < std::get<1>(determine_best_threshold_cat(rows, col));
-                best_threshold = determine_best_threshold_numeric(rows, col);
-            }
+            else continue;       
         }    
     }
-    
-    best_gain = std::get<1>(best_threshold);
-    best_question.column_ = 
-
-
+    best_question = Question(best_feature, best_value);
     return forward_as_tuple(best_gain, best_question);
 }
 
@@ -195,4 +195,19 @@ bool Calculations::compare_rows(const VecS& v1, const VecS& v2, int col) {
 
 void Calculations::sort_col(Data& data, int col) {
     sort(data.begin(), data.end(), std::bind(compare_rows, std::placeholders::_1, std::placeholders::_2, col));
+}
+
+bool Calculations::isNum(string str) {
+    std::stringstream sin(str);
+    double d;
+    char c;
+    if (!(sin >> d))
+    {
+        return false;
+    }
+    if (sin >> c)
+    {
+        return false;
+    }
+    return true;
 }
