@@ -4,298 +4,185 @@
 	<Project>
 		<Option title="DecisionTree"/>
 		<Option makefile_is_custom="1"/>
-		<Option compiler="msvc8"/>
-		<Option virtualFolders="CMake Files\;CMake Files\lib\;CMake Files\test\;"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\lib\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="G:/code/assignment/code/cmake-build-debug"/>
+				<Option working_dir="/home/gerald/assignment2/code/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\Makefile VERBOSE=1 all"/>
-					<CompileFile command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/home/gerald/assignment2/code/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="install/local">
-				<Option working_dir="G:/code/assignment/code/cmake-build-debug"/>
+				<Option working_dir="/home/gerald/assignment2/code/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\Makefile VERBOSE=1 install/local"/>
-					<CompileFile command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="install">
-				<Option working_dir="G:/code/assignment/code/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\Makefile VERBOSE=1 install"/>
-					<CompileFile command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="G:/code/assignment/code/cmake-build-debug"/>
+				<Option working_dir="/home/gerald/assignment2/code/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\Makefile VERBOSE=1 edit_cache"/>
-					<CompileFile command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="G:/code/assignment/code/cmake-build-debug"/>
+				<Option working_dir="/home/gerald/assignment2/code/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\Makefile VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="list_install_components">
-				<Option working_dir="G:/code/assignment/code/cmake-build-debug"/>
+				<Option working_dir="/home/gerald/assignment2/code/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\Makefile VERBOSE=1 list_install_components"/>
-					<CompileFile command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/home/gerald/assignment2/code/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="DecisionTree">
-				<Option output="G:/code/assignment/code/cmake-build-debug/lib/DecisionTree.lib" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="G:/code/assignment/code/cmake-build-debug/lib"/>
+				<Option output="/home/gerald/assignment2/code/cmake-build-debug/lib/libDecisionTree.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/gerald/assignment2/code/cmake-build-debug/lib"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
-				<Option compiler="msvc8"/>
+				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="G:/boost_1_75_0"/>
-					<Add directory="G:/code/assignment/code/lib/include"/>
-					<Add directory="G:\vs\VC\Tools\MSVC\14.28.29910\ATLMFC\include"/>
-					<Add directory="G:\vs\VC\Tools\MSVC\14.28.29910\include"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\winrt"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\cppwinrt"/>
+					<Add directory="/home/gerald/assignment2/code/lib/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\lib\Makefile VERBOSE=1 DecisionTree"/>
-					<CompileFile command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\lib\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\lib\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\lib\Makefile VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/lib/Makefile&quot;  VERBOSE=1 DecisionTree"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/lib/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/lib/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/lib/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="DecisionTree/fast">
-				<Option output="G:/code/assignment/code/cmake-build-debug/lib/DecisionTree.lib" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="G:/code/assignment/code/cmake-build-debug/lib"/>
+				<Option output="/home/gerald/assignment2/code/cmake-build-debug/lib/libDecisionTree.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/gerald/assignment2/code/cmake-build-debug/lib"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
-				<Option compiler="msvc8"/>
+				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="G:/boost_1_75_0"/>
-					<Add directory="G:/code/assignment/code/lib/include"/>
-					<Add directory="G:\vs\VC\Tools\MSVC\14.28.29910\ATLMFC\include"/>
-					<Add directory="G:\vs\VC\Tools\MSVC\14.28.29910\include"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\winrt"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\cppwinrt"/>
+					<Add directory="/home/gerald/assignment2/code/lib/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\lib\Makefile VERBOSE=1 DecisionTree/fast"/>
-					<CompileFile command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\lib\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\lib\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\lib\Makefile VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="DecisionTreeTest">
-				<Option output="G:/code/assignment/code/cmake-build-debug/test/DecisionTreeTest.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="G:/code/assignment/code/cmake-build-debug/test"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="msvc8"/>
-				<Compiler>
-					<Add directory="G:/code/assignment/code/test/../lib/include"/>
-					<Add directory="G:/boost_1_75_0"/>
-					<Add directory="G:\vs\VC\Tools\MSVC\14.28.29910\ATLMFC\include"/>
-					<Add directory="G:\vs\VC\Tools\MSVC\14.28.29910\include"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\winrt"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\cppwinrt"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\test\Makefile VERBOSE=1 DecisionTreeTest"/>
-					<CompileFile command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\test\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\test\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\test\Makefile VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="DecisionTreeTest/fast">
-				<Option output="G:/code/assignment/code/cmake-build-debug/test/DecisionTreeTest.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="G:/code/assignment/code/cmake-build-debug/test"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="msvc8"/>
-				<Compiler>
-					<Add directory="G:/code/assignment/code/test/../lib/include"/>
-					<Add directory="G:/boost_1_75_0"/>
-					<Add directory="G:\vs\VC\Tools\MSVC\14.28.29910\ATLMFC\include"/>
-					<Add directory="G:\vs\VC\Tools\MSVC\14.28.29910\include"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\winrt"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\cppwinrt"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\test\Makefile VERBOSE=1 DecisionTreeTest/fast"/>
-					<CompileFile command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\test\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\test\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\test\Makefile VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="BaggingTest">
-				<Option output="G:/code/assignment/code/cmake-build-debug/test/BaggingTest.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="G:/code/assignment/code/cmake-build-debug/test"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="msvc8"/>
-				<Compiler>
-					<Add directory="G:/code/assignment/code/test/../lib/include"/>
-					<Add directory="G:/boost_1_75_0"/>
-					<Add directory="G:\vs\VC\Tools\MSVC\14.28.29910\ATLMFC\include"/>
-					<Add directory="G:\vs\VC\Tools\MSVC\14.28.29910\include"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\winrt"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\cppwinrt"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\test\Makefile VERBOSE=1 BaggingTest"/>
-					<CompileFile command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\test\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\test\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\test\Makefile VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="BaggingTest/fast">
-				<Option output="G:/code/assignment/code/cmake-build-debug/test/BaggingTest.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="G:/code/assignment/code/cmake-build-debug/test"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="msvc8"/>
-				<Compiler>
-					<Add directory="G:/code/assignment/code/test/../lib/include"/>
-					<Add directory="G:/boost_1_75_0"/>
-					<Add directory="G:\vs\VC\Tools\MSVC\14.28.29910\ATLMFC\include"/>
-					<Add directory="G:\vs\VC\Tools\MSVC\14.28.29910\include"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\winrt"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\cppwinrt"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\test\Makefile VERBOSE=1 BaggingTest/fast"/>
-					<CompileFile command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\test\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\test\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f G:\code\assignment\code\cmake-build-debug\test\Makefile VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/lib/Makefile&quot;  VERBOSE=1 DecisionTree/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/lib/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/lib/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/gerald/assignment2/code/cmake-build-debug/lib/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="G:/code/assignment/code/lib/include/Bagging.hpp">
+		<Unit filename="/home/gerald/assignment2/code/lib/include/Bagging.hpp">
 			<Option target="DecisionTree"/>
 		</Unit>
-		<Unit filename="G:/code/assignment/code/lib/include/Calculations.hpp">
+		<Unit filename="/home/gerald/assignment2/code/lib/include/Calculations.hpp">
 			<Option target="DecisionTree"/>
 		</Unit>
-		<Unit filename="G:/code/assignment/code/lib/include/DataReader.hpp">
+		<Unit filename="/home/gerald/assignment2/code/lib/include/DataReader.hpp">
 			<Option target="DecisionTree"/>
 		</Unit>
-		<Unit filename="G:/code/assignment/code/lib/include/Dataset.hpp">
+		<Unit filename="/home/gerald/assignment2/code/lib/include/Dataset.hpp">
 			<Option target="DecisionTree"/>
 		</Unit>
-		<Unit filename="G:/code/assignment/code/lib/include/DecisionTree.hpp">
+		<Unit filename="/home/gerald/assignment2/code/lib/include/DecisionTree.hpp">
 			<Option target="DecisionTree"/>
 		</Unit>
-		<Unit filename="G:/code/assignment/code/lib/include/Leaf.hpp">
+		<Unit filename="/home/gerald/assignment2/code/lib/include/Leaf.hpp">
 			<Option target="DecisionTree"/>
 		</Unit>
-		<Unit filename="G:/code/assignment/code/lib/include/Node.hpp">
+		<Unit filename="/home/gerald/assignment2/code/lib/include/Node.hpp">
 			<Option target="DecisionTree"/>
 		</Unit>
-		<Unit filename="G:/code/assignment/code/lib/include/Question.hpp">
+		<Unit filename="/home/gerald/assignment2/code/lib/include/Question.hpp">
 			<Option target="DecisionTree"/>
 		</Unit>
-		<Unit filename="G:/code/assignment/code/lib/include/TreeTest.hpp">
+		<Unit filename="/home/gerald/assignment2/code/lib/include/TreeTest.hpp">
 			<Option target="DecisionTree"/>
 		</Unit>
-		<Unit filename="G:/code/assignment/code/lib/include/Utils.hpp">
+		<Unit filename="/home/gerald/assignment2/code/lib/include/Utils.hpp">
 			<Option target="DecisionTree"/>
 		</Unit>
-		<Unit filename="G:/code/assignment/code/lib/src/Bagging.cpp">
+		<Unit filename="/home/gerald/assignment2/code/lib/src/Bagging.cpp">
 			<Option target="DecisionTree"/>
-			<Option target="DecisionTreeTest"/>
-			<Option target="BaggingTest"/>
 		</Unit>
-		<Unit filename="G:/code/assignment/code/lib/src/Calculations.cpp">
+		<Unit filename="/home/gerald/assignment2/code/lib/src/Calculations.cpp">
 			<Option target="DecisionTree"/>
-			<Option target="DecisionTreeTest"/>
-			<Option target="BaggingTest"/>
 		</Unit>
-		<Unit filename="G:/code/assignment/code/lib/src/DataReader.cpp">
+		<Unit filename="/home/gerald/assignment2/code/lib/src/DataReader.cpp">
 			<Option target="DecisionTree"/>
-			<Option target="DecisionTreeTest"/>
-			<Option target="BaggingTest"/>
 		</Unit>
-		<Unit filename="G:/code/assignment/code/lib/src/DecisionTree.cpp">
+		<Unit filename="/home/gerald/assignment2/code/lib/src/DecisionTree.cpp">
 			<Option target="DecisionTree"/>
-			<Option target="DecisionTreeTest"/>
-			<Option target="BaggingTest"/>
 		</Unit>
-		<Unit filename="G:/code/assignment/code/lib/src/Leaf.cpp">
+		<Unit filename="/home/gerald/assignment2/code/lib/src/Leaf.cpp">
 			<Option target="DecisionTree"/>
-			<Option target="DecisionTreeTest"/>
-			<Option target="BaggingTest"/>
 		</Unit>
-		<Unit filename="G:/code/assignment/code/lib/src/Node.cpp">
+		<Unit filename="/home/gerald/assignment2/code/lib/src/Node.cpp">
 			<Option target="DecisionTree"/>
-			<Option target="DecisionTreeTest"/>
-			<Option target="BaggingTest"/>
 		</Unit>
-		<Unit filename="G:/code/assignment/code/lib/src/Question.cpp">
+		<Unit filename="/home/gerald/assignment2/code/lib/src/Question.cpp">
 			<Option target="DecisionTree"/>
-			<Option target="DecisionTreeTest"/>
-			<Option target="BaggingTest"/>
 		</Unit>
-		<Unit filename="G:/code/assignment/code/lib/src/TreeTest.cpp">
+		<Unit filename="/home/gerald/assignment2/code/lib/src/TreeTest.cpp">
 			<Option target="DecisionTree"/>
-			<Option target="DecisionTreeTest"/>
-			<Option target="BaggingTest"/>
 		</Unit>
-		<Unit filename="G:/code/assignment/code/test/bagging_tester.cpp">
-			<Option target="BaggingTest"/>
-		</Unit>
-		<Unit filename="G:/code/assignment/code/test/decision_tree_tester.cpp">
-			<Option target="DecisionTreeTest"/>
-		</Unit>
-		<Unit filename="G:/code/assignment/code/CMakeLists.txt">
+		<Unit filename="/home/gerald/assignment2/code/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="G:/code/assignment/code/lib/CMakeLists.txt">
+		<Unit filename="/home/gerald/assignment2/code/lib/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\lib\"/>
-		</Unit>
-		<Unit filename="G:/code/assignment/code/test/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\test\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

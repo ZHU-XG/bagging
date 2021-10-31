@@ -11,7 +11,7 @@ using std::shared_ptr;
 using std::string;
 using boost::timer::cpu_timer;
 
-Bagging::Bagging(const DataReader& dr, const int ensembleSize, int seed) : 
+Bagging::Bagging(const DataReader& dr, const int ensembleSize, uint seed) : 
   dr_(dr), 
   ensembleSize_(ensembleSize),
   learners_({}) {
@@ -22,15 +22,21 @@ Bagging::Bagging(const DataReader& dr, const int ensembleSize, int seed) :
 
 void Bagging::buildBag() {
   cpu_timer timer;
-  std::vector<double> timings; 
+  std::vector<double> timings;
+  const MetaData meta = dr_.metaData();
   for (int i = 0; i < ensembleSize_; i++) {
-    timer.start();
-    //TODO: Implement bagging
-    //   Generate a bootstrap sample of the original data
-    //   Train an unpruned tree model on this sample
-    auto nanoseconds = boost::chrono::nanoseconds(timer.elapsed().wall);
-    auto seconds = boost::chrono::duration_cast<boost::chrono::seconds>(nanoseconds);
-    timings.push_back(seconds.count());
+      Data* bootstrapped_data = new Data;
+      while ((*bootstrapped_data).size() < (dr_.trainData()).size() ){
+          int random_row_index = int(random_number_generator() % (dr_.trainData().size() - 1));
+          bootstrapped_data->push_back(dr_.trainData()[random_row_index]);
+      } // randomly choose rows from data
+      timer.start();
+      DecisionTree dt(dr_, *bootstrapped_data);
+      delete bootstrapped_data;
+      auto nanoseconds = boost::chrono::nanoseconds(timer.elapsed().wall);
+      auto seconds = boost::chrono::duration_cast<boost::chrono::seconds>(nanoseconds);
+      timings.push_back(seconds.count());
+      learners_.push_back(dt);
   }
   float avg_timing = Utils::iterators::average(std::begin(timings), std::begin(timings) + std::min(5, ensembleSize_));
   std::cout << "Average timing: " << avg_timing << std::endl;

@@ -5,6 +5,8 @@
  */
 
 #include "DecisionTree.hpp"
+#include "set"
+#include "future"
 
 using std::tuple;
 using std::make_shared;
@@ -13,37 +15,45 @@ using std::string;
 using boost::timer::cpu_timer;
 
 DecisionTree::DecisionTree(const DataReader& dr) : root_(Node()), dr_(dr) {
-  std::cout << "Start building tree." << std::endl; cpu_timer timer;
-  root_ = buildTree(dr_.trainData(), dr_.metaData());
-  std::cout << "Done. " << timer.format() << std::endl;
+    std::cout << "Start building tree." << std::endl; cpu_timer timer;
+    root_ = buildTree(dr_.trainData(), dr_.metaData());
+    std::cout << "Done. " << timer.format() << std::endl;
 }
 
+DecisionTree::DecisionTree(const DataReader& dr, Data& data) : root_(Node()), dr_(dr) {
+    std::cout << "Start building tree." << std::endl; cpu_timer timer;
+    root_ = buildTree(data, dr_.metaData());
+    std::cout << "Done. " << timer.format() << std::endl;
+}
 
 const Node DecisionTree::buildTree(const Data& rows, const MetaData& meta) {
-  //TODO: build a decision tree
-     //[gain, question] = find_best_split(..)
-     //IF gain == 0 DO
-     //   Create a leaf node
-     //ELSE
-     //   Split the dataset among two branches and build the two subtrees
-     //END
     tuple<const double, const Question> gain_question = Calculations::find_best_split(rows, meta);
     double gain = std::get<0>(gain_question);
     Question question = std::get<1>(gain_question);
-    if (gain == 0) {
-        ClassCounter classCounter = Calculations::classCounts(rows);
-        Leaf leaf(classCounter);
+
+    if (gain < 10e-6) {
+        Leaf leaf(Calculations::classCounts(rows));
         Node leafNode(leaf);
         return leafNode;
     }
     else {
-        tuple<const Data, const Data> true_and_false_data = Calculations::partition(rows, question);
-        Data trueData = std::get<0>(true_and_false_data);
-        Data falseData = std::get<1>(true_and_false_data);
-        // In case there is empty branch
-        Node trueBranch = (trueData.size() > 0) ? buildTree(trueData, meta) : Node();
-        Node falseBranch = (falseData.size() > 0) ? buildTree(falseData, meta) : Node();
-        return Node(trueBranch, falseBranch, question);
+        tuple<const Data, const Data> left_right = Calculations::partition(rows, question);
+        Node* right_branch = new Node;
+        Node* left_branch = new Node;
+        std::thread branching_right([this, &left_right, &meta, right_branch]() {
+            *right_branch = buildTree(std::get<0>(left_right), meta);
+        });
+
+        std::thread branching_left([this, &left_right, &meta, left_branch]() {
+            *left_branch = buildTree(std::get<1>(left_right), meta);
+        });
+
+        branching_right.join();
+        branching_left.join();
+        Node new_node = Node(*right_branch, *left_branch, question);
+        delete right_branch;
+        delete left_branch;
+        return new_node;
     }
 }
 

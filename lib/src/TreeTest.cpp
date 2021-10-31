@@ -40,8 +40,8 @@ void TreeTest::test(const Data& testData, const VecS& labels, shared_ptr<Node> t
   for (const auto& row: testData) {
     const auto& classification = classify(row, tree);
     static size_t last = row.size() - 1;
-    // Comment out this line to print the predicion of each example
-    // std::cout << "Actual: " << row[last] << "\tPrediction: "; printLeaf(classification);
+//     Comment out this line to print the predicion of each example
+//     std::cout << "Actual: " << row[last] << "\tPrediction: "; printLeaf(classification);
     if (Utils::tree::getMax(classification) == row[last])
       accuracy += 1;
   }

@@ -8,8 +8,8 @@
 
 int main() {
   Dataset d;
-  d.train.filename = "G:/code/assignment/code/test/fruit.arff";
-  d.test.filename = "G:/code/assignment/code/test/fruit_test.arff";
+  d.train.filename = "../data/covtype.arff";
+  d.test.filename = "../data/covtype_test.arff";
 
   Bagging bc(d, 5);
   bc.test();

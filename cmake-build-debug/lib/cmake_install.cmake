@@ -1,8 +1,8 @@
-# Install script for directory: G:/code/assignment/code/lib
+# Install script for directory: /home/gerald/assignment2/code/lib
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/DecisionTree")
+  set(CMAKE_INSTALL_PREFIX "/usr/local")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -27,20 +27,25 @@ if(NOT CMAKE_INSTALL_COMPONENT)
   endif()
 endif()
 
+# Install shared libraries without execute permission?
+if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
+  set(CMAKE_INSTALL_SO_NO_EXE "1")
+endif()
+
 # Is this installation the result of a crosscompile?
 if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "G:/code/assignment/code/cmake-build-debug/lib/DecisionTree.lib")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/gerald/assignment2/code/cmake-build-debug/lib/libDecisionTree.a")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/DecisionTree/DecisionTreeConfig.cmake")
     file(DIFFERENT EXPORT_FILE_CHANGED FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/DecisionTree/DecisionTreeConfig.cmake"
-         "G:/code/assignment/code/cmake-build-debug/lib/CMakeFiles/Export/lib/cmake/DecisionTree/DecisionTreeConfig.cmake")
+         "/home/gerald/assignment2/code/cmake-build-debug/lib/CMakeFiles/Export/lib/cmake/DecisionTree/DecisionTreeConfig.cmake")
     if(EXPORT_FILE_CHANGED)
       file(GLOB OLD_CONFIG_FILES "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/DecisionTree/DecisionTreeConfig-*.cmake")
       if(OLD_CONFIG_FILES)
@@ -49,28 +54,28 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
       endif()
     endif()
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/DecisionTree" TYPE FILE FILES "G:/code/assignment/code/cmake-build-debug/lib/CMakeFiles/Export/lib/cmake/DecisionTree/DecisionTreeConfig.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/DecisionTree" TYPE FILE FILES "/home/gerald/assignment2/code/cmake-build-debug/lib/CMakeFiles/Export/lib/cmake/DecisionTree/DecisionTreeConfig.cmake")
   if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/DecisionTree" TYPE FILE FILES "G:/code/assignment/code/cmake-build-debug/lib/CMakeFiles/Export/lib/cmake/DecisionTree/DecisionTreeConfig-release.cmake")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/DecisionTree" TYPE FILE FILES "/home/gerald/assignment2/code/cmake-build-debug/lib/CMakeFiles/Export/lib/cmake/DecisionTree/DecisionTreeConfig-release.cmake")
   endif()
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/DecisionTree" TYPE FILE FILES
-    "G:/code/assignment/code/lib/include/Bagging.hpp"
-    "G:/code/assignment/code/lib/include/Dataset.hpp"
-    "G:/code/assignment/code/lib/include/DataReader.hpp"
-    "G:/code/assignment/code/lib/include/DecisionTree.hpp"
-    "G:/code/assignment/code/lib/include/Question.hpp"
-    "G:/code/assignment/code/lib/include/Leaf.hpp"
-    "G:/code/assignment/code/lib/include/Node.hpp"
-    "G:/code/assignment/code/lib/include/Utils.hpp"
-    "G:/code/assignment/code/lib/include/Calculations.hpp"
-    "G:/code/assignment/code/lib/include/TreeTest.hpp"
+    "/home/gerald/assignment2/code/lib/include/Bagging.hpp"
+    "/home/gerald/assignment2/code/lib/include/Dataset.hpp"
+    "/home/gerald/assignment2/code/lib/include/DataReader.hpp"
+    "/home/gerald/assignment2/code/lib/include/DecisionTree.hpp"
+    "/home/gerald/assignment2/code/lib/include/Question.hpp"
+    "/home/gerald/assignment2/code/lib/include/Leaf.hpp"
+    "/home/gerald/assignment2/code/lib/include/Node.hpp"
+    "/home/gerald/assignment2/code/lib/include/Utils.hpp"
+    "/home/gerald/assignment2/code/lib/include/Calculations.hpp"
+    "/home/gerald/assignment2/code/lib/include/TreeTest.hpp"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/DecisionTree" TYPE FILE FILES "G:/code/assignment/code/cmake-build-debug/lib/DecisionTreeConfigVersion.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/DecisionTree" TYPE FILE FILES "/home/gerald/assignment2/code/cmake-build-debug/lib/DecisionTreeConfigVersion.cmake")
 endif()
 

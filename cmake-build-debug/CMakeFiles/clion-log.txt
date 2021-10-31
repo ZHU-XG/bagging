@@ -1,41 +1,28 @@
-"E:\Apps\CLion 2020.3.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - NMake Makefiles" G:\code\assignment\code
--- The C compiler identification is MSVC 19.28.29912.0
--- The CXX compiler identification is MSVC 19.28.29912.0
--- Check for working C compiler: G:/vs/VC/Tools/MSVC/14.28.29910/bin/Hostx86/x86/cl.exe
--- Check for working C compiler: G:/vs/VC/Tools/MSVC/14.28.29910/bin/Hostx86/x86/cl.exe - works
+/snap/clion/145/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/gerald/assignment2/code
+-- The C compiler identification is GNU 9.3.0
+-- The CXX compiler identification is GNU 9.3.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc - works
 -- Detecting C compiler ABI info
 -- Detecting C compiler ABI info - done
 -- Detecting C compile features
 -- Detecting C compile features - done
--- Check for working CXX compiler: G:/vs/VC/Tools/MSVC/14.28.29910/bin/Hostx86/x86/cl.exe
--- Check for working CXX compiler: G:/vs/VC/Tools/MSVC/14.28.29910/bin/Hostx86/x86/cl.exe - works
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ - works
 -- Detecting CXX compiler ABI info
 -- Detecting CXX compiler ABI info - done
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
--- Found Boost: G:/boost_1_75_0/ (found version "1.75.0")  
+-- Found Boost: /usr/include (found version "1.64.0")  
 -- Looking for pthread.h
--- Looking for pthread.h - not found
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
 -- Found Threads: TRUE  
-CMake Warning at E:/Apps/CLion 2020.3.3/bin/cmake/win/share/cmake-3.17/Modules/FindBoost.cmake:1183 (message):
-  New Boost version may have incorrect or missing dependencies and imported
-  targets
-Call Stack (most recent call first):
-  E:/Apps/CLion 2020.3.3/bin/cmake/win/share/cmake-3.17/Modules/FindBoost.cmake:1307 (_Boost_COMPONENT_DEPENDENCIES)
-  E:/Apps/CLion 2020.3.3/bin/cmake/win/share/cmake-3.17/Modules/FindBoost.cmake:1908 (_Boost_MISSING_DEPENDENCIES)
-  test/CMakeLists.txt:17 (find_package)
-
-
-CMake Warning at E:/Apps/CLion 2020.3.3/bin/cmake/win/share/cmake-3.17/Modules/FindBoost.cmake:1183 (message):
-  New Boost version may have incorrect or missing dependencies and imported
-  targets
-Call Stack (most recent call first):
-  E:/Apps/CLion 2020.3.3/bin/cmake/win/share/cmake-3.17/Modules/FindBoost.cmake:1307 (_Boost_COMPONENT_DEPENDENCIES)
-  E:/Apps/CLion 2020.3.3/bin/cmake/win/share/cmake-3.17/Modules/FindBoost.cmake:1908 (_Boost_MISSING_DEPENDENCIES)
-  test/CMakeLists.txt:17 (find_package)
-
-
--- Found Boost: G:/boost_1_75_0/ (found version "1.75.0") found components: timer chrono 
 -- Configuring done
 -- Generating done
--- Build files have been written to: G:/code/assignment/code/cmake-build-debug
+-- Build files have been written to: /home/gerald/assignment2/code/cmake-build-debug

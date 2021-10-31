@@ -8,8 +8,8 @@
 
 int main(void) {
   Dataset d;
-  d.train.filename = "../data/play_tennis.csv";
-  d.test.filename = "../data/play_tennis_test.csv";
+  d.train.filename = "/home/r0815637/code/test/data/covtype.arff";
+  d.test.filename = "/home/r0815637/code/test/data/covtype_test.arff";
 
   DecisionTree dt(d);
   return 0;

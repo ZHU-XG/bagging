@@ -4,20 +4,19 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "G:/code/assignment/code/lib/src/Bagging.cpp" "G:/code/assignment/code/cmake-build-debug/lib/CMakeFiles/DecisionTree.dir/src/Bagging.cpp.obj"
-  "G:/code/assignment/code/lib/src/Calculations.cpp" "G:/code/assignment/code/cmake-build-debug/lib/CMakeFiles/DecisionTree.dir/src/Calculations.cpp.obj"
-  "G:/code/assignment/code/lib/src/DataReader.cpp" "G:/code/assignment/code/cmake-build-debug/lib/CMakeFiles/DecisionTree.dir/src/DataReader.cpp.obj"
-  "G:/code/assignment/code/lib/src/DecisionTree.cpp" "G:/code/assignment/code/cmake-build-debug/lib/CMakeFiles/DecisionTree.dir/src/DecisionTree.cpp.obj"
-  "G:/code/assignment/code/lib/src/Leaf.cpp" "G:/code/assignment/code/cmake-build-debug/lib/CMakeFiles/DecisionTree.dir/src/Leaf.cpp.obj"
-  "G:/code/assignment/code/lib/src/Node.cpp" "G:/code/assignment/code/cmake-build-debug/lib/CMakeFiles/DecisionTree.dir/src/Node.cpp.obj"
-  "G:/code/assignment/code/lib/src/Question.cpp" "G:/code/assignment/code/cmake-build-debug/lib/CMakeFiles/DecisionTree.dir/src/Question.cpp.obj"
-  "G:/code/assignment/code/lib/src/TreeTest.cpp" "G:/code/assignment/code/cmake-build-debug/lib/CMakeFiles/DecisionTree.dir/src/TreeTest.cpp.obj"
+  "/home/gerald/assignment2/code/lib/src/Bagging.cpp" "/home/gerald/assignment2/code/cmake-build-debug/lib/CMakeFiles/DecisionTree.dir/src/Bagging.cpp.o"
+  "/home/gerald/assignment2/code/lib/src/Calculations.cpp" "/home/gerald/assignment2/code/cmake-build-debug/lib/CMakeFiles/DecisionTree.dir/src/Calculations.cpp.o"
+  "/home/gerald/assignment2/code/lib/src/DataReader.cpp" "/home/gerald/assignment2/code/cmake-build-debug/lib/CMakeFiles/DecisionTree.dir/src/DataReader.cpp.o"
+  "/home/gerald/assignment2/code/lib/src/DecisionTree.cpp" "/home/gerald/assignment2/code/cmake-build-debug/lib/CMakeFiles/DecisionTree.dir/src/DecisionTree.cpp.o"
+  "/home/gerald/assignment2/code/lib/src/Leaf.cpp" "/home/gerald/assignment2/code/cmake-build-debug/lib/CMakeFiles/DecisionTree.dir/src/Leaf.cpp.o"
+  "/home/gerald/assignment2/code/lib/src/Node.cpp" "/home/gerald/assignment2/code/cmake-build-debug/lib/CMakeFiles/DecisionTree.dir/src/Node.cpp.o"
+  "/home/gerald/assignment2/code/lib/src/Question.cpp" "/home/gerald/assignment2/code/cmake-build-debug/lib/CMakeFiles/DecisionTree.dir/src/Question.cpp.o"
+  "/home/gerald/assignment2/code/lib/src/TreeTest.cpp" "/home/gerald/assignment2/code/cmake-build-debug/lib/CMakeFiles/DecisionTree.dir/src/TreeTest.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "MSVC")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "G:/boost_1_75_0"
   "../lib/include"
   )
 

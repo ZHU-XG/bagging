@@ -1,0 +1,2 @@
+/usr/bin/ar qc libDecisionTree.a  CMakeFiles/DecisionTree.dir/src/Bagging.cpp.o CMakeFiles/DecisionTree.dir/src/DataReader.cpp.o CMakeFiles/DecisionTree.dir/src/DecisionTree.cpp.o CMakeFiles/DecisionTree.dir/src/Question.cpp.o CMakeFiles/DecisionTree.dir/src/Leaf.cpp.o CMakeFiles/DecisionTree.dir/src/Node.cpp.o CMakeFiles/DecisionTree.dir/src/Calculations.cpp.o CMakeFiles/DecisionTree.dir/src/TreeTest.cpp.o
+/usr/bin/ranlib libDecisionTree.a
